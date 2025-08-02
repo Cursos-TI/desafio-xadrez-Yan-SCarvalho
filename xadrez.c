@@ -24,41 +24,23 @@ int main() {
         k++;
     } while (k < 8);
     
-    // CAVALO: CIMA CIMA DIREITA OU CIMA CIMA ESQUERDA
+    // CAVALO 
     
-    char lado;
+    printf("\nMovimento do Cavalo:\n");
 
-    printf("\nMovimentos do cavalo:\n");
-
-    printf("\nPara qual lado você deseja mover o cavalo? (d = Direita, e = esquerda): \n");
-
-    scanf("%c" , &lado);
-
-    if(lado == 'd' || lado == 'D'){
-        printf("Você escolheu mover para a direita.\n");
-        // CAVALO: 2 para cima 1 para direita
-    
-    for (int c = 0; c < 2; c++) {
-        printf("Cima\n");
+    // Mover 2 casas para baixo (usando while)
+    int J = 0;
+    while (J < 2) {
+        printf("Baixo\n");
+        J++;
     }
-    printf("Direita\n");
 
-    } else if (lado == 'e' || lado == 'E'){
-        printf("Você escolheu mover para a esquerda.\n");
-        // CAVALO: 2 para cima 1 para a Esquerda
-    
-    for (int c = 0; c < 2; c++) {
-        printf("Cima\n");
+    // Mover 1 casa para a esquerda (usando for)
+    for (int k = 0; k < 1; k++) {
+        printf("Esquerda\n");
     }
-    printf("Esquerda\n");
 
-    }else {
-        printf("Opção inválida. \n");
-    }
-     
 
     return 0;
-
-
-    
 }
+

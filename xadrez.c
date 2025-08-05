@@ -1,46 +1,61 @@
 #include <stdio.h>
 
-int main() {
-    // BISPO: Diagonal superior direita (Cima + Direita)
-    printf("Movimentos do Bispo:\n");
-    for (int i = 0; i < 5; i++) {
+// Função recursiva para o Bispo
+void moverBispo(int i, int j) {
+    if (i >= 5) return;
+
+    if (j == 0) {
         printf("Cima\n");
+        moverBispo(i, 1);  // Próximo passo: Direita
+    } else {
         printf("Direita\n");
+        moverBispo(i + 1, 0);  // Próxima iteração
     }
+}
 
-    // TORRE: Direita
-    printf("\nMovimentos da Torre:\n");
-    int j = 0;
-    while (j < 5) {
-        printf("Direita\n");
-        j++;
-    }
+// Função recursiva para a Torre
+void moverTorre(int j) {
+    if (j >= 5) return;
 
-    // RAINHA: Esquerda
-    printf("\nMovimentos da Rainha:\n");
-    int k = 0;
-    do {
-        printf("Esquerda\n");
-        k++;
-    } while (k < 8);
-    
-    // CAVALO 
-    
+    printf("Direita\n");
+    moverTorre(j + 1);
+}
+
+// Função recursiva para a Rainha
+void moverRainha(int k) {
+    if (k >= 8) return;
+
+    printf("Esquerda\n");
+    moverRainha(k + 1);
+}
+
+// Loop complexo para o Cavalo
+void moverCavalo() {
     printf("\nMovimento do Cavalo:\n");
 
-    // Mover 2 casas para baixo (usando while)
-    int J = 0;
-    while (J < 2) {
-        printf("Baixo\n");
-        J++;
+    int i = 0, j = 2;
+    for (; i < 3 && j >= 0; i++, j--) {
+        if (i % 2 == 0 && j % 2 == 0) {
+            printf("Cima\n");
+        } else if (i % 2 == 1 && j % 2 == 1) {
+            printf("Baixo\n");
+        } else {
+            printf("Direita\n");
+        }
     }
+}
 
-    // Mover 1 casa para a esquerda (usando for)
-    for (int k = 0; k < 1; k++) {
-        printf("Esquerda\n");
-    }
+int main() {
+    printf("Movimentos do Bispo:\n");
+    moverBispo(0, 0);
 
+    printf("\nMovimentos da Torre:\n");
+    moverTorre(0);
+
+    printf("\nMovimentos da Rainha:\n");
+    moverRainha(0);
+
+    moverCavalo();
 
     return 0;
 }
-
